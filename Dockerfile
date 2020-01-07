@@ -1,5 +1,7 @@
 FROM ufoym/deepo:all-jupyter-py36-cu100
 
+LABEL maintainer="Abu Zaher Md Faridee <zaher14@gmail.com>"
+
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         tree \
         htop \
