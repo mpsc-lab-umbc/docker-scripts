@@ -34,10 +34,6 @@ RUN pip --no-cache-dir install \
         pydot \
         transforms3d \
         tables
-        #talos \
-        #wrangle \
-        #hyperio \
-        #livelossplot
 
 RUN jupyter contrib nbextension install --user
 RUN jupyter nbextensions_configurator enable --user
