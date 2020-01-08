@@ -13,7 +13,7 @@ To run the docker container for the first time, use the following command:
 ```
 make docker-run
 ```
-You Should see a prompt as following:
+You should see a prompt as following:
 
 ```
 NV_GPU='0' docker run -it -p 18443:8443 -p 18888:8888 -p \
@@ -35,7 +35,23 @@ NV_GPU='0' docker run -it -p 18443:8443 -p 18888:8888 -p \
      or http://127.0.0.1:8888/?token=86bc42b488a9737264201b71f279f4226165ddab5749c6f9
 ```
 
-Point your browser to the provided url from the prompt and you should be able to access the jupyter notebook.
+Point your browser to the provided url from the prompt with the following changes
+* If you are running the container in a remote server and you know the remote IP, replace `127.0.0.1` with the remote IP e.g. `172.217.15.110`
+* Change the port `8888` again to your `LOCAL_JUPYTER_PORT`.
+* Make sure you keep the `token` part intact. 
+
+So url 
+```
+http://127.0.0.1:8888/?token=86bc42b488a9737264201b71f279f4226165ddab5749c6f9
+``` 
+
+should become 
+
+```
+http://172.217.15.110:18888/?token=86bc42b488a9737264201b71f279f4226165ddab5749c6f9
+``` 
+
+in this example.
 
 # Advanced
 
