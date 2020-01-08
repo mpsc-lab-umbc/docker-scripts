@@ -1,4 +1,5 @@
 A simple script to get you started with ML development within a docker container. It assumes you don't know much about Docker and takes you right into your development environment without breaking a sweat.
+This particular image comes pre configured with **pytorch**, **tensorflow**, **keras**, **scikit-learn** and a few other ML tool-chain so you can start coding in your favorite framework right away in **jupyter-notebook**.
 
 # Quickstart
 Open the `Makefile` and change the values of the following variables
