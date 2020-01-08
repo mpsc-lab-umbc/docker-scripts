@@ -50,7 +50,4 @@ RUN wget https://github.com/codercom/code-server/releases/download/1.939-vsc1.33
         cp /tmp/code-server1.939-vsc1.33.1-linux-x64/code-server /usr/local/bin
 RUN mkdir -p /vscode
 
-RUN echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.conf
-RUN echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf && sysctl -p
-
 CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--allow-root", "--notebook-dir='/notebooks'"]
