@@ -86,7 +86,7 @@ make docker-run
 
 ## Making your Changes Persistent
 
-Recreating the container will remove any custom packages that you might have installed. If you end up installing a lot of new tools and make them persistent across the containers, it's better to make a new image. Trace the following steps
+Recreating the container will remove any custom packages that you might have installed. If you end up installing a lot of new tools and want make them persistent across the containers, it's better to make a new image. Trace the following steps
 
 * Set a custom name to your image `IMAGE=your_custom_image_name` in the `Makefile`.
 * Add the install commands into the the `Dockerfile` followed by `RUN` directive. e.g.
