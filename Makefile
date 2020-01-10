@@ -1,6 +1,6 @@
 # make appropriate changes before running the scripts
 # START OF CONFIG =====================================================================================================
-IMAGE=azmfaridee/dl
+IMAGE=azmfaridee/dl:latest
 CONTAINER=yourname_projectname
 AVAILABLE_GPUS='0'
 LOCAL_JUPYTER_PORT=18888
