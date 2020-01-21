@@ -13,7 +13,7 @@ docker-resume:
 
 docker-run:
 	NV_GPU=$(AVAILABLE_GPUS) nvidia-docker run -it -p $(VSCODE_PORT):8443 -p $(LOCAL_JUPYTER_PORT):8888 -p \
-		$(LOCAL_TENSORBOARD_PORT):6006 -p $(R_STUDIO_PORT):8787 -v $(shell pwd):/notebooks --name $(CONTAINER) $(IMAGE)
+		$(LOCAL_TENSORBOARD_PORT):6006 -v $(shell pwd):/notebooks --name $(CONTAINER) $(IMAGE)
 
 docker-shell:
 	nvidia-docker exec -it $(CONTAINER) bash
