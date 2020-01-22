@@ -96,3 +96,17 @@ Recreating the container will remove any custom packages that you might have ins
 * Build the image with `make docker-build`
 * Run the container us usual with either `make docker-run` or `make docker-resume` command
 
+## Accessing The Docker Container Behind Firewall
+
+If you're running the container on a server behind firewall, use ssh tunnel to access the jupyter notebook
+
+```
+ssh -L local_port:remote_ip:remote_port user@remote_ip -fNT
+```
+
+So if your jupyter notebook is hosted at `11888` port on a remote server `jupyter.remoteserver.com`, and you want to access it on your pc at `8888` port, the command should look like
+
+```
+ssh -L 8888:jupyter.remoteserver.com:11888 -fNT
+```
+
