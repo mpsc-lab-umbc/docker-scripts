@@ -31,4 +31,4 @@ docker-tensorboard:
 	nvidia-docker exec -it $(CONTAINER) tensorboard --logdir=logs
 
 docker-vscode:
-	nvidia-docker exec -it $(CONTAINER) code-server -p 8443 --disable-telemetry -d /vscode /notebooks
+	nvidia-docker exec -it $(CONTAINER) code-server --port 8443 --auth password --disable-telemetry /notebooks
