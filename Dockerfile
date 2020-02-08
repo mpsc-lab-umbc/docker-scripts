@@ -45,9 +45,6 @@ RUN mkdir -p /root/.jupyter/nbconfig
 RUN echo '{ "load_extensions": { "contrib_nbextensions_help_item/main": true, "runtools/main": true, "nbextensions_configurator/config_menu/main": true, "freeze/main": true, "toggle_all_line_numbers/main": true, "scratchpad/main": true, "spellchecker/main": false, "notify/notify": true, "scroll_down/main": true, "autosavetime/main": true, "toc2/main": true, "execute_time/ExecuteTime": true, "code_prettify/code_prettify": true, "jupyter-js-widgets/extension": true, "qgrid/extension": true }, "scrollDownIsEnabled": true }' > /root/.jupyter/nbconfig/notebook.json
 RUN echo '{ "load_extensions": { "nbextensions_configurator/tree_tab/main": true } }' > /root/.jupyter/nbconfig/tree.json
 
-RUN wget https://github.com/codercom/code-server/releases/download/1.939-vsc1.33.1/code-server1.939-vsc1.33.1-linux-x64.tar.gz -P /tmp && \
-        tar -xzvf /tmp/code-server1.939-vsc1.33.1-linux-x64.tar.gz -C /tmp && \
-        cp /tmp/code-server1.939-vsc1.33.1-linux-x64/code-server /usr/local/bin
-RUN mkdir -p /vscode
+COPY --from=codercom/code-server:latest /usr/local/bin/code-server /usr/local/bin/code-server
 
 CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--allow-root", "--notebook-dir='/notebooks'"]
