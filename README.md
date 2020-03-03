@@ -63,6 +63,13 @@ make docker-shell
 ```
 Your current working directly is mounted inside the docker container in `/notebooks` folder so do a `cd /notebooks` to get to your scripts.
 
+## Using Visual Studio Code
+Simply run the following command in a seperate prompt (make sure your container is running in the background)
+```
+make docker-vscode
+```
+Use the same password you you get a prompt.
+
 ## Installing your Own Set of Packages
 If you ever need to install a custom package not provided by the image you can do so by dropping into the shell and installing the package with pip
 
