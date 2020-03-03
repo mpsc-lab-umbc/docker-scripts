@@ -23,6 +23,9 @@ docker-clean:
 
 docker-build:
 	docker build -t $(IMAGE) .
+	
+docker-rebuild:
+	docker build -t $(IMAGE) --no-cache --pull .
 
 docker-push:
 	docker push $(IMAGE)
