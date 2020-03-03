@@ -9,6 +9,7 @@ Open the `Makefile` and change the values of the following variables
 * Modify all the port numbers so that there's no conflict with other users
     * `LOCAL_JUPYTER_PORT`
     * `LOCAL_TENSORBOARD_PORT`
+    * `VSCODE_PORT`
 
 To run the docker container for the first time, use the following command:
 ```
