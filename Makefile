@@ -3,9 +3,9 @@
 IMAGE=azmfaridee/dl:latest
 CONTAINER=yourname_projectname
 AVAILABLE_GPUS='0'
-LOCAL_JUPYTER_PORT=18888
-LOCAL_TENSORBOARD_PORT=16006
-VSCODE_PORT=18443
+LOCAL_JUPYTER_PORT=48888
+LOCAL_TENSORBOARD_PORT=46006
+VSCODE_PORT=48443
 PASSWORD=your_vscode_and_jupyter_pass
 # END OF CONFIG  ======================================================================================================
 
