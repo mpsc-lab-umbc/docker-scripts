@@ -10,6 +10,7 @@ Open the `Makefile` and change the values of the following variables
     * `LOCAL_JUPYTER_PORT`
     * `LOCAL_TENSORBOARD_PORT`
     * `VSCODE_PORT`
+* Finally, change `PASSWORD` to your desired value, you'll use this password to access your jupyter notebook and vscode development environment.
 
 To run the docker container for the first time, use the following command:
 ```
@@ -20,40 +21,32 @@ You should see a prompt as following:
 ```
 NV_GPU='0' docker run -it -p 18443:8443 -p 18888:8888 -p \
         16006:6006 -p 18787:8787 -v /home/azmfaridee/Documents/projects/mpsc/docker-scripts:/notebooks --name faridee_project1 azmfaridee/dl
-[I 22:32:16.066 NotebookApp] Writing notebook server cookie secret to /root/.local/share/jupyter/runtime/notebook_cookie_secret
-[I 22:32:16.259 NotebookApp] [jupyter_nbextensions_configurator] enabled 0.4.1
-[I 22:32:16.260 NotebookApp] Serving notebooks from local directory: /notebooks
-[I 22:32:16.260 NotebookApp] The Jupyter Notebook is running at:
-[I 22:32:16.260 NotebookApp] http://4f588f77a77a:8888/?token=86bc42b488a9737264201b71f279f4226165ddab5749c6f9
-[I 22:32:16.260 NotebookApp]  or http://127.0.0.1:8888/?token=86bc42b488a9737264201b71f279f4226165ddab5749c6f9
-[I 22:32:16.260 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-[W 22:32:16.270 NotebookApp] No web browser found: could not locate runnable browser.
-[C 22:32:16.270 NotebookApp]
-
-    To access the notebook, open this file in a browser:
-        file:///root/.local/share/jupyter/runtime/nbserver-1-open.html
-    Or copy and paste one of these URLs:
-        http://4f588f77a77a:8888/?token=86bc42b488a9737264201b71f279f4226165ddab5749c6f9
-     or http://127.0.0.1:8888/?token=86bc42b488a9737264201b71f279f4226165ddab5749c6f9
+[I 18:33:05.793 NotebookApp] Writing notebook server cookie secret to /root/.local/share/jupyter/runtime/notebook_cookie_secret
+[I 18:33:05.997 NotebookApp] [jupyter_nbextensions_configurator] enabled 0.4.1
+[I 18:33:05.998 NotebookApp] Serving notebooks from local directory: /notebooks
+[I 18:33:05.998 NotebookApp] The Jupyter Notebook is running at:
+[I 18:33:05.998 NotebookApp] http://34a6a9a3fc1f:8888/?token=...
+[I 18:33:05.998 NotebookApp]  or http://127.0.0.1:8888/?token=...
+[I 18:33:05.998 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 18:33:06.002 NotebookApp] No web browser found: could not locate runnable browser.
 ```
 
 Point your browser to the provided url from the prompt with the following changes
 * If you are running the container in a remote server and you know the remote IP, replace `127.0.0.1` with the remote IP e.g. `172.217.15.110`
 * Change the port `8888` again to your `LOCAL_JUPYTER_PORT`.
-* Make sure you keep the `token` part intact. 
 
 So url 
 ```
-http://127.0.0.1:8888/?token=86bc42b488a9737264201b71f279f4226165ddab5749c6f9
+http://127.0.0.1:8888/
 ``` 
 
 should become 
 
 ```
-http://172.217.15.110:18888/?token=86bc42b488a9737264201b71f279f4226165ddab5749c6f9
+http://172.217.15.110:18888/
 ``` 
 
-in this example.
+in this example. Now use the `PASSWORD` you defined earlier to access your jupyter notebook
 
 # Advanced
 
