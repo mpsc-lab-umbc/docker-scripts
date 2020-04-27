@@ -10,17 +10,17 @@ PASSWORD=your_vscode_and_jupyter_pass
 # END OF CONFIG  ======================================================================================================
 
 docker-resume:
-	nvidia-docker start -ai $(CONTAINER)
+	docker start -ai $(CONTAINER)
 
 docker-run:
-	NV_GPU=$(AVAILABLE_GPUS) nvidia-docker run -it -e PASSWORD=$(PASSWORD) -e JUPYTER_TOKEN=$(PASSWORD) -p $(VSCODE_PORT):8443 -p $(LOCAL_JUPYTER_PORT):8888 -p \
+	docker run --gpus '"device=$(AVAILABLE_GPUS)"' -it -e PASSWORD=$(PASSWORD) -e JUPYTER_TOKEN=$(PASSWORD) -p $(VSCODE_PORT):8443 -p $(LOCAL_JUPYTER_PORT):8888 -p \
 		$(LOCAL_TENSORBOARD_PORT):6006 -v $(shell pwd):/notebooks --name $(CONTAINER) $(IMAGE)
 
 docker-shell:
-	nvidia-docker exec -it $(CONTAINER) bash
+	docker exec -it $(CONTAINER) bash
 
 docker-clean:
-	nvidia-docker rm $(CONTAINER)
+	docker rm $(CONTAINER)
 
 docker-build:
 	docker build -t $(IMAGE) .
@@ -32,7 +32,7 @@ docker-push:
 	docker push $(IMAGE)
 
 docker-tensorboard:
-	nvidia-docker exec -it $(CONTAINER) tensorboard --logdir=logs
+	docker exec -it $(CONTAINER) tensorboard --logdir=logs
 
 docker-vscode:
-	nvidia-docker exec -it $(CONTAINER) code-server --port 8443 --auth password --disable-telemetry /notebooks
+	docker exec -it $(CONTAINER) code-server --port 8443 --auth password --disable-telemetry /notebooks
