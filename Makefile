@@ -39,4 +39,5 @@ docker-vscode:
 	docker exec -it $(CONTAINER) code-server --port 8443 --auth password --disable-telemetry /notebooks
 
 docker-matlab-run:
-	docker run --gpus '"device=$(AVAILABLE_GPUS)"' -it -e PASSWORD=$(PASSWORD) -p $(MATLAB_PORT):6080 --name matlab_test nvcr.io/partners/matlab:r2019b
+	docker run --gpus '"device=$(AVAILABLE_GPUS)"' -it -e PASSWORD=$(PASSWORD) -p $(MATLAB_PORT):6080 --shm-size=512M -e MLM_LICENSE_FILE=<port id>@<location> -v $(shell pwd):/notebooks --name matlab_test nvcr.io/partners/matlab:r2020a
+# Replace the port and location for network license
