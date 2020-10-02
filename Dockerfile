@@ -1,4 +1,4 @@
-FROM ufoym/deepo:all-jupyter-py36-cu100
+FROM ufoym/deepo:all-jupyter-py36-cu101
 
 LABEL maintainer="Abu Zaher Md Faridee <zaher14@gmail.com>"
 
@@ -18,7 +18,7 @@ RUN pip install --upgrade pip
 RUN pip --no-cache-dir install \
         graphviz \
         tqdm \
-        keras \
+        tensorflow-gpu \
         jupyter_contrib_nbextensions \
         jupyter_nbextensions_configurator \
         jupyterthemes \
