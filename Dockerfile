@@ -45,7 +45,16 @@ RUN mkdir -p /root/.jupyter/nbconfig
 RUN echo '{ "load_extensions": { "contrib_nbextensions_help_item/main": true, "runtools/main": true, "nbextensions_configurator/config_menu/main": true, "freeze/main": true, "toggle_all_line_numbers/main": true, "scratchpad/main": true, "spellchecker/main": false, "notify/notify": true, "scroll_down/main": true, "autosavetime/main": true, "toc2/main": true, "execute_time/ExecuteTime": true, "code_prettify/code_prettify": true, "jupyter-js-widgets/extension": true, "qgrid/extension": true }, "scrollDownIsEnabled": true }' > /root/.jupyter/nbconfig/notebook.json
 RUN echo '{ "load_extensions": { "nbextensions_configurator/tree_tab/main": true } }' > /root/.jupyter/nbconfig/tree.json
 
-COPY --from=codercom/code-server:2.1698 /usr/local/bin/code-server /usr/local/bin/code-server
+RUN curl -fsSL https://code-server.dev/install.sh | sh
+RUN mkdir -p /root/.code-server/extensions
+
+RUN wget https://github.com/microsoft/vscode-python/releases/download/2020.5.86806/ms-python-release.vsix
+RUN code-server --install-extension ms-python-release.vsix
+
+RUN mkdir -p /root/.local/share/code-server/User/
+COPY settings.json /root/.local/share/code-server/User/
+
+# COPY --from=codercom/code-server:2.1698 /usr/local/bin/code-server /usr/local/bin/code-server
 # COPY --from=codercom/code-server:latest /usr/local/lib/code-server /usr/local/lib/code-server 
 # RUN ln -s /usr/local/lib/code-server/code-server /usr/local/bin/code-server
 
