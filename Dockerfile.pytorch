@@ -1,8 +1,8 @@
-FROM nvcr.io/nvidia/tensorflow:20.09-tf2-py3
+FROM nvcr.io/nvidia/pytorch:20.09-py3
 LABEL maintainer="Abu Zaher Md Faridee <zaher14@gmail.com>"
 
-RUN pip install --upgrade pip
-RUN pip --no-cache-dir install keras
+#RUN pip install --upgrade pip
+#RUN pip --no-cache-dir install tensorflow
 
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 RUN mkdir -p /root/.code-server/extensions
