@@ -4,6 +4,8 @@ LABEL maintainer="Abu Zaher Md Faridee <zaher14@gmail.com>"
 RUN pip install --upgrade pip
 RUN pip --no-cache-dir install keras
 
+EXPOSE 8443
+
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 RUN mkdir -p /root/.code-server/extensions
 
