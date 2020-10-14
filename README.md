@@ -46,7 +46,11 @@ should become
 http://172.217.15.110:18888/
 ``` 
 
-in this example. Now use the `PASSWORD` you defined earlier to access your jupyter notebook
+in this example. Now use the `PASSWORD` you defined earlier to access your jupyter notebook.
+
+You can stop the container in a number of ways
+1. By presssing `Control-C` in the same prompt where you first started the container
+2. If you want to stop the container from a different shell, use the command `make docker-stop` while residing in the same workinng folder.
 
 # Advanced
 
