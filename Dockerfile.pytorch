@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/pytorch:20.09-py3
+FROM nvcr.io/nvidia/pytorch:21.03-py3
 LABEL maintainer="Abu Zaher Md Faridee <zaher14@gmail.com>"
 
 EXPOSE 8443
