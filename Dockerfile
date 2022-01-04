@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/tensorflow:21.03-tf1-py3
+FROM nvcr.io/nvidia/tensorflow:21.12-tf2-py3
 LABEL maintainer="Abu Zaher Md Faridee <zaher14@gmail.com>"
 
 RUN pip install --upgrade pip

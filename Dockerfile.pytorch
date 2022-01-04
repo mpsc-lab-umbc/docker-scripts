@@ -1,5 +1,8 @@
-FROM nvcr.io/nvidia/pytorch:21.03-py3
+FROM nvcr.io/nvidia/pytorch:21.12-py3
 LABEL maintainer="Abu Zaher Md Faridee <zaher14@gmail.com>"
+
+RUN pip install --upgrade pip
+RUN pip --no-cache-dir install pip install pytorchvideo
 
 EXPOSE 8443
 
